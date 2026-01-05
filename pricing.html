@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Прозорі ціни на послуги прибирання у Львові. Пакети послуг, знижки для постійних клієнтів. Без прихованих платежів.">
+    <title>Ціни на Прибирання - Lviv Cleaning | Вартість Послуг</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .pricing-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 87, 183, 0.1);
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: #FFD700;
+            box-shadow: 0 8px 32px rgba(0, 87, 183, 0.15);
+        }
+        .pricing-card.popular {
+            border-color: #FFD700;
+            background: linear-gradient(to bottom, #FFF9E6 0%, white 100%);
+        }
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(135deg, #FFD700, #FFC700);
+            color: #0057B7;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+        }
+        .pricing-card h3 {
+            color: #0057B7;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+        .price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #0057B7;
+            margin: 1.5rem 0;
+        }
+        .price span {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #6C757D;
+        }
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+            padding: 0;
+        }
+        .pricing-features li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid #E8EAED;
+            color: #2C3E50;
+        }
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        .pricing-table-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 87, 183, 0.1);
+            margin: 3rem 0;
+        }
+        .price-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            padding: 1.25rem 1rem;
+            border-bottom: 1px solid #E8EAED;
+            align-items: center;
+        }
+        .price-row:first-child {
+            background: linear-gradient(135deg, #0057B7, #004494);
+            color: white;
+            font-weight: 700;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0.5rem;
+        }
+        .price-row:hover:not(:first-child) {
+            background: #F8F9FA;
+        }
+        .price-amount {
+            color: #FFD700;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+        @media (max-width: 768px) {
+            .price-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">Lviv<span>Clean</span></a>
+            <nav class="main-nav">
+                <a href="services.html">Послуги</a>
+                <a href="pricing.html">Ціни</a>
+                <a href="about.html">Про Нас</a>
+                <a href="locations.html">Райони</a>
+            </nav>
+            <div class="header-contact">
+                <a href="tel:+380671234567" class="phone-number">+380 67 123 45 67</a>
+                <a href="contact.html" class="btn btn-primary">Замовити</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="hero" style="min-height: 50vh;">
+        <div class="hero-container" style="grid-template-columns: 1fr;">
+            <div class="hero-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h1>Прозорі <span class="highlight">Ціни</span></h1>
+                <p>Чесне ціноутворення без прихованих платежів. Оберіть пакет, який підходить вам, або отримайте індивідуальну пропозицію.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Packages -->
+    <section class="section section-white">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Пакети Послуг</h2>
+                <p>Готові рішення для різних потреб</p>
+            </div>
+
+            <div class="pricing-cards">
+                <!-- Basic Package -->
+                <div class="pricing-card">
+                    <h3>Базовий</h3>
+                    <p style="color: #6C757D;">Підтримуюче прибирання</p>
+                    <div class="price">1200<span> грн</span></div>
+                    <p style="font-size: 0.9rem; color: #6C757D; margin-bottom: 1.5rem;">до 50 м² | 2-3 години</p>
+                    <ul class="pricing-features">
+                        <li>Пилососення всіх кімнат</li>
+                        <li>Миття підлоги</li>
+                        <li>Видалення пилу</li>
+                        <li>Миття ванної та туалету</li>
+                        <li>Миття кухонних поверхонь</li>
+                        <li>Винесення сміття</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary" style="width: 100%;">Замовити</a>
+                </div>
+
+                <!-- Standard Package (Popular) -->
+                <div class="pricing-card popular">
+                    <span class="popular-badge">Популярний</span>
+                    <h3>Стандарт</h3>
+                    <p style="color: #6C757D;">Повне прибирання</p>
+                    <div class="price">1800<span> грн</span></div>
+                    <p style="font-size: 0.9rem; color: #6C757D; margin-bottom: 1.5rem;">до 70 м² | 3-4 години</p>
+                    <ul class="pricing-features">
+                        <li>Все з Базового пакету</li>
+                        <li>Миття дзеркал</li>
+                        <li>Чищення сантехніки</li>
+                        <li>Миття плити та витяжки</li>
+                        <li>Чищення дверей</li>
+                        <li>Миття підвіконь</li>
+                        <li>Чищення світильників</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary" style="width: 100%;">Замовити</a>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="pricing-card">
+                    <h3>Преміум</h3>
+                    <p style="color: #6C757D;">Генеральне прибирання</p>
+                    <div class="price">2800<span> грн</span></div>
+                    <p style="font-size: 0.9rem; color: #6C757D; margin-bottom: 1.5rem;">до 90 м² | 5-6 годин</p>
+                    <ul class="pricing-features">
+                        <li>Все зі Стандартного</li>
+                        <li>Глибоке чищення кухні</li>
+                        <li>Чищення духовки</li>
+                        <li>Миття холодильника</li>
+                        <li>Миття вікон (2-3 вікна)</li>
+                        <li>Чищення батарей</li>
+                        <li>Миття балкону</li>
+                        <li>Чищення плінтусів</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary" style="width: 100%;">Замовити</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Pricing Table -->
+    <section class="section section-gray">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Детальний Прайс-Лист</h2>
+                <p>Вартість окремих послуг</p>
+            </div>
+
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div class="pricing-table-section">
+                    <h3 style="margin-bottom: 1.5rem; color: #0057B7;">Регулярне Прибирання (за площею)</h3>
+                    <div class="price-row">
+                        <div>Площа</div>
+                        <div>Раз на тиждень</div>
+                        <div>Раз на 2 тижні</div>
+                    </div>
+                    <div class="price-row">
+                        <div>До 50 м²</div>
+                        <div class="price-amount">1000 грн</div>
+                        <div class="price-amount">1200 грн</div>
+                    </div>
+                    <div class="price-row">
+                        <div>50-70 м²</div>
+                        <div class="price-amount">1500 грн</div>
+                        <div class="price-amount">1800 грн</div>
+                    </div>
+                    <div class="price-row">
+                        <div>70-90 м²</div>
+                        <div class="price-amount">2000 грн</div>
+                        <div class="price-amount">2400 грн</div>
+                    </div>
+                    <div class="price-row">
+                        <div>90-120 м²</div>
+                        <div class="price-amount">2500 грн</div>
+                        <div class="price-amount">3000 грн</div>
+                    </div>
+                    <div class="price-row">
+                        <div>120+ м²</div>
+                        <div class="price-amount" colspan="2">Індивідуальний розрахунок</div>
+                    </div>
+                </div>
+
+                <div class="pricing-table-section">
+                    <h3 style="margin-bottom: 1.5rem; color: #0057B7;">Спеціальні Послуги</h3>
+                    <div class="price-row">
+                        <div>Послуга</div>
+                        <div colspan="2">Ціна</div>
+                    </div>
+                    <div class="price-row">
+                        <div>Прибирання після ремонту (за м²)</div>
+                        <div colspan="2" class="price-amount">від 30 грн/м²</div>
+                    </div>
+                    <div class="price-row">
+                        <div>Прибирання при переїзді</div>
+                        <div colspan="2" class="price-amount">від 1500 грн</div>
+                    </div>
+                    <div class="price-row">
+                        <div>Генеральне прибирання</div>
+                        <div colspan="2" class="price-amount">від 2000 грн</div>
+                    </div>
+                    <div class="price-row">
+                        <div>Прибирання офісу (за м²)</div>
+                        <div colspan="2" class="price-amount">від 15 грн/м²</div>
+                    </div>
+                </div>
+
+                <div class="pricing-table-section">
+                    <h3 style="margin-bottom: 1.5rem; color: #0057B7;">Додаткові Опції</h3>
+                    <div class="price-row">
+                        <div>Послуга</div>
+                        <div colspan="2">Ціна</div>
+                    </div>
+                    <div class="price-row">
+                        <div>Миття вікон (за вікно)</div>
+                        <div colspan="2" class="price-amount">150 грн</div>
+                    </div>
+                    <div class="price-row">
+                        <div>Глибоке чищення духовки</div>
+                        <div colspan="2" class="price-amount">300 грн</div>
+                    </div>
+                    <div class="price-row">
+                        <div>Миття холодильника зсередини</div>
+                        <div colspan="2" class="price-amount">200 грн</div>
+                    </div>
+                    <div class="price-row">
+                        <div>Прибирання балкону/лоджії</div>
+                        <div colspan="2" class="price-amount">250 грн</div>
+                    </div>
+                    <div class="price-row">
+                        <div>Чищення килимів (за м²)</div>
+                        <div colspan="2" class="price-amount">50 грн/м²</div>
+                    </div>
+                    <div class="price-row">
+                        <div>Хімчистка м'яких меблів (диван)</div>
+                        <div colspan="2" class="price-amount">від 400 грн</div>
+                    </div>
+                    <div class="price-row">
+                        <div>Прасування (за годину)</div>
+                        <div colspan="2" class="price-amount">200 грн</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discounts -->
+    <section class="section section-white">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Знижки та Акції</h2>
+                <p>Заощаджуйте з Lviv Cleaning</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🎁</div>
+                    <div class="feature-content">
+                        <h4>Перше Замовлення -10%</h4>
+                        <p>Для нових клієнтів знижка 10% на перше прибирання. Використайте промокод: NEWCLEAN</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📅</div>
+                    <div class="feature-content">
+                        <h4>Абонемент -15%</h4>
+                        <p>При оплаті 4 прибирань наперед - знижка 15% на весь абонемент.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👥</div>
+                    <div class="feature-content">
+                        <h4>Приведи Друга</h4>
+                        <p>Рекомендуйте нас іоднім - отримайте 200 грн знижки на наступне прибирання.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🏢</div>
+                    <div class="feature-content">
+                        <h4>Корпоративні Тарифи</h4>
+                        <p>Для компаній та великих об'єктів - індивідуальні умови та знижки до 20%.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee -->
+    <section class="section section-gray">
+        <div class="section-container" style="text-align: center;">
+            <h2 style="margin-bottom: 1.5rem;">💯 Наша Гарантія</h2>
+            <p style="font-size: 1.25rem; line-height: 1.8; max-width: 800px; margin: 0 auto 2rem;">
+                <strong>Фіксована ціна:</strong> Ціна, озвучена при замовленні, не зміниться.<br>
+                <strong>Гарантія якості:</strong> Якщо щось не так - ми повернемось і виправимо безкоштовно.<br>
+                <strong>Страхування:</strong> Всі наші співробітники застраховані, ваше майно в безпеці.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-white">
+        <div class="section-container" style="text-align: center;">
+            <h2 style="margin-bottom: 1.5rem;">Готові Замовити?</h2>
+            <p style="margin-bottom: 2.5rem; font-size: 1.25rem;">Зателефонуйте для безкоштовної консультації або замовте онлайн</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-primary btn-large">Замовити Онлайн</a>
+                <a href="tel:+380671234567" class="btn btn-secondary btn-large">+380 67 123 45 67</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Lviv Cleaning</h4>
+                <p>Найкращий клінінговий сервіс у Львові. Професійно, надійно, екологічно.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Послуги</h4>
+                <ul>
+                    <li><a href="service-residential.html">Прибирання Квартир</a></li>
+                    <li><a href="service-office.html">Прибирання Офісів</a></li>
+                    <li><a href="service-move.html">Прибирання При Переїзді</a></li>
+                    <li><a href="service-deep-cleaning.html">Генеральне Прибирання</a></li>
+                    <li><a href="service-post-renovation.html">Після Ремонту</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Райони</h4>
+                <ul>
+                    <li><a href="location-center.html">Центр Міста</a></li>
+                    <li><a href="location-sykhiv.html">Сихів</a></li>
+                    <li><a href="location-frankivskyi.html">Франківський</a></li>
+                    <li><a href="location-shevchenkivskyi.html">Шевченківський</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакти</h4>
+                <ul>
+                    <li><a href="tel:+380671234567">+380 67 123 45 67</a></li>
+                    <li><a href="mailto:info@lvivclean.ua">info@lvivclean.ua</a></li>
+                    <li>вул. Під Дубом 7, Львів</li>
+                    <li><a href="contact.html">Форма зв'язку</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Lviv Cleaning. Усі права захищені. | <a href="privacy.html">Політика Конфіденційності</a></p>
+        </div>
+    </footer>
+</body>
+</html>
