@@ -1,0 +1,8 @@
+# Lviv Cleaning Website - Robots.txt
+# Allow all search engines to index the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://yaboixanny.github.io/lviv-cleaning-website/sitemap.xml
