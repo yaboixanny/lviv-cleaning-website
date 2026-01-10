@@ -5,4 +5,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://yaboixanny.github.io/lviv-cleaning-website/sitemap.xml
+Sitemap: https://lvivcleaning.com/sitemap.xml
